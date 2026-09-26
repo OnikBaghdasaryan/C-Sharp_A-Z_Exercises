@@ -40,7 +40,7 @@
                 }
             }
         }
-        static int Get_Input(string num_name)
+        static int GetInput(string num_name)
         {
             int validNumber;
 
@@ -59,7 +59,7 @@
 
             return validNumber;
         }
-        static int Get_Positive_Input()
+        static int GetPositiveInput()
         {
             int validNumber;
 
@@ -81,13 +81,13 @@
         static void RangeSum()
         {
             int sum = 0;
-            int start = Get_Input("start");
-            int end = Get_Input("end");
+            int start = GetInput("start");
+            int end = GetInput("end");
             while (true) {
                 if (end < start)
                 {
                     Console.WriteLine("Invalid input. Start number should not be greater than end number. Try again");
-                    end = Get_Input("end");
+                    end = GetInput("end");
                 }
                 else
                 {
@@ -102,7 +102,7 @@
         }
         static void DigitSum()
         {
-            int num = Get_Positive_Input();
+            int num = GetPositiveInput();
             int sum = 0;
             while (num != 0)
             {
