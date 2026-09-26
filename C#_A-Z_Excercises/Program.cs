@@ -11,6 +11,7 @@
                 Console.WriteLine("\n=== Run Menu ===");
                 Console.WriteLine("1. Run function start end number array sum.");
                 Console.WriteLine("2. Run function positive/zero number digits sum.");
+                Console.WriteLine("3. Run function positive/zero number digits sum recursion.");
                 Console.WriteLine("q. Quit");
                 Console.Write("Enter your choice: ");
 
@@ -27,6 +28,11 @@
                     case "2":
                         Console.WriteLine("\nRunning Scenario 2...");
                         DigitSum();
+                        break;
+
+                    case "3":
+                        Console.WriteLine("\nRunning Scenario 3...");
+                        DigitSumRecursion(GetPositiveInput());
                         break;
 
                     case "q":
@@ -110,6 +116,25 @@
                 num /= 10;
             }
             Console.WriteLine($"The sum is : {sum}");
+        }
+        static int DigitSumRecursion(int num)
+        {
+            int sum = 0;
+            while (num != 0)
+            {
+                sum += num % 10;
+                num /= 10;
             }
+            if (sum > 9)
+            {
+                sum = DigitSumRecursion(sum);
+            }
+            else
+            {
+                Console.WriteLine($"The sum is : {sum}");
+            }
+            return sum;
         }
     }
+        
+}
