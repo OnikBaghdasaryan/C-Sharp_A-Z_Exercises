@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            bool keepRunning = true;
+            /*bool keepRunning = true;
 
             while (keepRunning)
             {
@@ -44,7 +44,9 @@
                         Console.WriteLine("\nInvalid option. Please try again.");
                         break;
                 }
-            }
+            }*/
+
+            DividenCalc(12, 18);
         }
         static int GetInput(string num_name)
         {
@@ -134,6 +136,19 @@
                 Console.WriteLine($"The sum is : {sum}");
             }
             return sum;
+        }
+
+        static void DividenCalc(int num1, int num2)
+        {
+            int div = num1 % num2;
+            if (div == 0)
+            {
+                Console.WriteLine(num2);
+            }
+            else
+            {
+                DividenCalc(num2,div);
+            }
         }
     }
         
