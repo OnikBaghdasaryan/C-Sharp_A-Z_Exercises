@@ -14,7 +14,7 @@
                 Console.WriteLine("q. Quit");
                 Console.Write("Enter your choice: ");
 
-                string input = Console.ReadLine()?.Trim().ToLower();
+                string input = Console.ReadLine()?.Trim().ToLower() ?? "";
 
                 // 3. Handle the input
                 switch (input)
@@ -47,7 +47,7 @@
             while (true)
             {
                 Console.Write($"Please enter {num_name} number: ");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine() ?? "";
 
                 if (int.TryParse(input, out validNumber))
                 {
@@ -66,14 +66,14 @@
             while (true)
             {
                 Console.Write("Please enter number: ");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine() ?? "";
 
                 if (int.TryParse(input, out validNumber) & validNumber >= 0)
                 {
                     break;
                 }
 
-                Console.WriteLine("Invalid input. That is not a whole number. Try again.");
+                Console.WriteLine("Invalid input. That is not a whole positive/zero number. Try again.");
             }
 
             return validNumber;
