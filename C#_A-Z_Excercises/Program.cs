@@ -150,6 +150,40 @@
                 DividenCalc(num2,div);
             }
         }
+
+        static int[] Above(int[,] matrix, int limit)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            int count = 0;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (matrix[i, j] > limit)
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            int[] result = new int[count];
+            int index = 0;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (matrix[i, j] > limit)
+                    {
+                        result[index++] = matrix[i, j];
+                    }
+                }
+            }
+
+            return result;
+        }
     }
         
 }
