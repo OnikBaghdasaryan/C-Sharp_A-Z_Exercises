@@ -80,5 +80,11 @@
                 Console.WriteLine("Invalid input. Use whole numbers separated by spaces.");
             }
         }
+
+        public static string[] ReadWords(string prompt)
+        {
+            Console.Write(prompt);
+            return (Console.ReadLine() ?? "").Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        }
     }
 }

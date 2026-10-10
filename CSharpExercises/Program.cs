@@ -18,6 +18,7 @@ namespace CSharpExercises
                 Console.WriteLine("5. Pi estimation (Monte Carlo)");
                 Console.WriteLine("6. Values above a limit (Above)");
                 Console.WriteLine("7. Best attempt (BestAttempt)");
+                Console.WriteLine("8. Cold working sensors (ColderThan)");
                 Console.WriteLine("q. Quit");
                 Console.Write("Enter your choice: ");
 
@@ -52,6 +53,10 @@ namespace CSharpExercises
 
                     case "7":
                         BestAttemptExercise.Run();
+                        break;
+
+                    case "8":
+                        ColderThanExercise.Run();
                         break;
 
                     case "q":
