@@ -46,7 +46,19 @@
                 }
             }*/
 
-            DividenCalc(12, 18);
+            Random random = new Random();
+            double M = 0;
+            double N = 0;
+            while (true) {
+                double x = random.NextDouble();
+                double y = random.NextDouble();
+                if (x * x + y * y <= 1)
+                {
+                    M++;
+                }
+                N++;
+                Console.WriteLine(4 * M/N);
+            }
         }
         static int GetInput(string num_name)
         {
@@ -138,8 +150,12 @@
             return sum;
         }
 
-        static void DividenCalc(int num1, int num2)
+        static void DividentCalc(int num1, int num2)
         {
+            if (num2 == 0 | num1 == 0){
+                Console.WriteLine("No zeros accepted.");
+                return;
+            }
             int div = num1 % num2;
             if (div == 0)
             {
@@ -147,7 +163,7 @@
             }
             else
             {
-                DividenCalc(num2,div);
+                DividentCalc(num2,div);
             }
         }
 
