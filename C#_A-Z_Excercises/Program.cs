@@ -1,235 +1,69 @@
-﻿namespace C__A_Z_Excercises
+﻿using C__A_Z_Excercises.Exercises;
+
+namespace C__A_Z_Excercises
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            /*bool keepRunning = true;
+            bool keepRunning = true;
 
             while (keepRunning)
             {
-                Console.WriteLine("\n=== Run Menu ===");
-                Console.WriteLine("1. Run function start end number array sum.");
-                Console.WriteLine("2. Run function positive/zero number digits sum.");
-                Console.WriteLine("3. Run function positive/zero number digits sum recursion.");
+                Console.WriteLine("\n=== Exercises ===");
+                Console.WriteLine("1. Range sum");
+                Console.WriteLine("2. Digit sum");
+                Console.WriteLine("3. Digit sum (recursion)");
+                Console.WriteLine("4. Greatest common divisor (DividentCalc)");
+                Console.WriteLine("5. Pi estimation (Monte Carlo)");
+                Console.WriteLine("6. Values above a limit (Above)");
+                Console.WriteLine("7. Best attempt (BestAttempt)");
                 Console.WriteLine("q. Quit");
                 Console.Write("Enter your choice: ");
 
-                string input = Console.ReadLine()?.Trim().ToLower() ?? "";
+                string input = Console.ReadLine()?.Trim().ToLower() ?? "q";
+                Console.WriteLine();
 
-                // 3. Handle the input
                 switch (input)
                 {
                     case "1":
-                        Console.WriteLine("\nRunning Scenario 1...");
-                        RangeSum();
+                        RangeSumExercise.Run();
                         break;
 
                     case "2":
-                        Console.WriteLine("\nRunning Scenario 2...");
-                        DigitSum();
+                        DigitSumExercise.Run();
                         break;
 
                     case "3":
-                        Console.WriteLine("\nRunning Scenario 3...");
-                        DigitSumRecursion(GetPositiveInput());
+                        DigitSumRecursionExercise.Run();
+                        break;
+
+                    case "4":
+                        DividentCalcExercise.Run();
+                        break;
+
+                    case "5":
+                        PiEstimationExercise.Run();
+                        break;
+
+                    case "6":
+                        AboveExercise.Run();
+                        break;
+
+                    case "7":
+                        BestAttemptExercise.Run();
                         break;
 
                     case "q":
-                        Console.WriteLine("\nExiting program. Goodbye!");
+                        Console.WriteLine("Exiting program. Goodbye!");
                         keepRunning = false;
                         break;
 
                     default:
-                        Console.WriteLine("\nInvalid option. Please try again.");
+                        Console.WriteLine("Invalid option. Please try again.");
                         break;
                 }
-            }*/
-
-            Random random = new Random();
-            double M = 0;
-            double N = 0;
-            while (true) {
-                double x = random.NextDouble();
-                double y = random.NextDouble();
-                if (x * x + y * y <= 1)
-                {
-                    M++;
-                }
-                N++;
-                Console.WriteLine(4 * M/N);
             }
-        }
-        static int GetInput(string num_name)
-        {
-            int validNumber;
-
-            while (true)
-            {
-                Console.Write($"Please enter {num_name} number: ");
-                string input = Console.ReadLine() ?? "";
-
-                if (int.TryParse(input, out validNumber))
-                {
-                    break;
-                }
-
-                Console.WriteLine("Invalid input. That is not a whole number. Try again.");
-            }
-
-            return validNumber;
-        }
-        static int GetPositiveInput()
-        {
-            int validNumber;
-
-            while (true)
-            {
-                Console.Write("Please enter number: ");
-                string input = Console.ReadLine() ?? "";
-
-                if (int.TryParse(input, out validNumber) & validNumber >= 0)
-                {
-                    break;
-                }
-
-                Console.WriteLine("Invalid input. That is not a whole positive/zero number. Try again.");
-            }
-
-            return validNumber;
-        }
-        static void RangeSum()
-        {
-            int sum = 0;
-            int start = GetInput("start");
-            int end = GetInput("end");
-            while (true) {
-                if (end < start)
-                {
-                    Console.WriteLine("Invalid input. Start number should not be greater than end number. Try again");
-                    end = GetInput("end");
-                }
-                else
-                {
-                    break;
-                }
-            }
-            for (int i = start; i <= end; i++)
-            {
-                sum += i;
-            }
-            Console.WriteLine($"The sum is : {sum}");
-        }
-        static void DigitSum()
-        {
-            int num = GetPositiveInput();
-            int sum = 0;
-            while (num != 0)
-            {
-                sum += num % 10;
-                num /= 10;
-            }
-            Console.WriteLine($"The sum is : {sum}");
-        }
-        static int DigitSumRecursion(int num)
-        {
-            int sum = 0;
-            while (num != 0)
-            {
-                sum += num % 10;
-                num /= 10;
-            }
-            if (sum > 9)
-            {
-                sum = DigitSumRecursion(sum);
-            }
-            else
-            {
-                Console.WriteLine($"The sum is : {sum}");
-            }
-            return sum;
-        }
-
-        static void DividentCalc(int num1, int num2)
-        {
-            if (num2 == 0 | num1 == 0){
-                Console.WriteLine("No zeros accepted.");
-                return;
-            }
-            int div = num1 % num2;
-            if (div == 0)
-            {
-                Console.WriteLine(num2);
-            }
-            else
-            {
-                DividentCalc(num2,div);
-            }
-        }
-
-        static int[] Above(int[,] matrix, int limit)
-        {
-            int rows = matrix.GetLength(0);
-            int cols = matrix.GetLength(1);
-            int count = 0;
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    if (matrix[i, j] > limit)
-                    {
-                        count++;
-                    }
-                }
-            }
-
-            int[] result = new int[count];
-            int index = 0;
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    if (matrix[i, j] > limit)
-                    {
-                        result[index++] = matrix[i, j];
-                    }
-                }
-            }
-
-            return result;
-        }
-
-        static Attempt[] BestAttempt(Attempt[][] students)
-        {
-            Attempt[] result = new Attempt[students.Length];
-
-            for (int i = 0; i < students.Length; i++)
-            {
-                Attempt best = students[i][0];
-
-                for (int j = 1; j < students[i].Length; j++)
-                {
-                    Attempt current = students[i][j];
-
-                    if (current.Score > best.Score || (current.Score == best.Score && current.Day < best.Day))
-                    {
-                        best = current;
-                    }
-                }
-
-                result[i] = best;
-            }
-
-            return result;
         }
     }
-
-    struct Attempt
-    {
-        public int Score;
-        public int Day;
-    }
-        
 }
