@@ -200,6 +200,36 @@
 
             return result;
         }
+
+        static Attempt[] BestAttempt(Attempt[][] students)
+        {
+            Attempt[] result = new Attempt[students.Length];
+
+            for (int i = 0; i < students.Length; i++)
+            {
+                Attempt best = students[i][0];
+
+                for (int j = 1; j < students[i].Length; j++)
+                {
+                    Attempt current = students[i][j];
+
+                    if (current.Score > best.Score || (current.Score == best.Score && current.Day < best.Day))
+                    {
+                        best = current;
+                    }
+                }
+
+                result[i] = best;
+            }
+
+            return result;
+        }
+    }
+
+    struct Attempt
+    {
+        public int Score;
+        public int Day;
     }
         
 }
