@@ -1,6 +1,6 @@
-﻿using C__A_Z_Excercises.Exercises;
+﻿using CSharpExercises.Exercises;
 
-namespace C__A_Z_Excercises
+namespace CSharpExercises
 {
     internal class Program
     {

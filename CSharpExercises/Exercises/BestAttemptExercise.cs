@@ -1,4 +1,4 @@
-﻿namespace C__A_Z_Excercises.Exercises
+﻿namespace CSharpExercises.Exercises
 {
     internal static class BestAttemptExercise
     {

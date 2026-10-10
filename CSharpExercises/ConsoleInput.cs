@@ -1,4 +1,4 @@
-﻿namespace C__A_Z_Excercises
+﻿namespace CSharpExercises
 {
     internal static class ConsoleInput
     {
